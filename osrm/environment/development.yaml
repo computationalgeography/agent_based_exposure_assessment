@@ -1,0 +1,17 @@
+name: build_osrm
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.10
+  - cmake
+  - boost=1.80
+  - lua
+  - bz2file
+  - expat
+  - gxx=12
+  - zlib
+  - tbb-devel
+  - pybind11
+  - nanobind
+  - cmake

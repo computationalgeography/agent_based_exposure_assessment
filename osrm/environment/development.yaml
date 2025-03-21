@@ -9,9 +9,8 @@ dependencies:
   - lua
   - bz2file
   - expat
-  - gxx=12
+  - gxx=12.3
   - zlib
   - tbb-devel
-  - pybind11
   - nanobind
   - cmake

@@ -1,0 +1,44 @@
+name: Linux CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "main"
+
+env:
+    source-directory: $GITHUB_WORKSPACE
+    build-directory: /tmp/build
+
+jobs:
+
+    build:
+        runs-on: ubuntu-24.04
+        timeout-minutes: 30
+
+        steps:
+
+            - name: Checkout project
+              uses: actions/checkout@v4
+
+            - name: Configure system
+              run: |
+                  sudo apt install ninja-build cmake python3-sphinx
+
+            - name: Configure project
+              shell: bash -l {0}
+              run: |
+                  mkdir ${{ env.build-directory }}
+                  cmake \
+                    -S ${{ env.source-directory }} \
+                    -B ${{ env.build-directory }}
+
+            - name: Build project
+              shell: bash -l {0}
+              run: |
+                  cmake --build ${{ env.build-directory }} --target all
+
+            - name: Test project
+              shell: bash -l {0}
+              run: |
+                  ctest --test-dir ${{ env.build-directory }} --output-on-failure

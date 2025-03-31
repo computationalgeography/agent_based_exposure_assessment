@@ -1,0 +1,10 @@
+---
+blank_issues_enabled: false
+
+contact_links:
+
+  - name: Open a blank issue
+    url:
+      "https://github.com/computationalgeography/agent_based_exposure_assessment/\
+      issues/new?template=Blank+issue"
+    about: Please open a blank issue to if you don't see your issue type here.

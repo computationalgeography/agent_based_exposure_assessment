@@ -19,6 +19,8 @@ find_package(Python 3.8
 
 include(FetchContent)
 
+enable_testing()
+
 add_subdirectory(source)
 add_subdirectory(documentation)
 
@@ -30,5 +32,3 @@ message(STATUS "    Python interpreter:   " ${Python_EXECUTABLE})
 message(STATUS "    Python version:       " ${Python_VERSION_MAJOR}.${Python_VERSION_MINOR}.${Python_VERSION_PATCH})
 message(STATUS "    Site-packages:        " ${Python_SITELIB})
 message(STATUS "-------------------------------------------------")
-
-# enable_testing()

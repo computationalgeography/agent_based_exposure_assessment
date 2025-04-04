@@ -26,6 +26,12 @@ set(CMAKE_MODULE_PATH
 
 include(CPM)
 
+CPMAddPackage(
+  GITHUB_REPOSITORY Project-OSRM/osrm-backend
+  GIT_TAG 646384a9480323344bc5984f236879d2db3da87e
+  OPTIONS "BUILD_SHARED_LIBS ON" "CMAKE_BUILD_TYPE Release"
+)
+
 enable_testing()
 
 add_subdirectory(source)

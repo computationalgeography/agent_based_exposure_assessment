@@ -19,6 +19,13 @@ find_package(Python 3.8
 
 include(FetchContent)
 
+set(CMAKE_MODULE_PATH
+  $ENV{CMAKE_MODULE_PATH}
+  ${CMAKE_CURRENT_SOURCE_DIR}/environment/cmake
+)
+
+include(CPM)
+
 enable_testing()
 
 add_subdirectory(source)

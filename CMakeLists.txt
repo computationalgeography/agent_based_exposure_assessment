@@ -4,7 +4,6 @@ project(agent_based_exposure_assessment
   VERSION 0.0.1
   DESCRIPTION "Agent-based exposure assessment"
   HOMEPAGE_URL "https://www.computationalgeography.org/"
-  LANGUAGES NONE
 )
 
 set(DEV_CURRENT_YEAR "2025")
@@ -14,14 +13,12 @@ set(${PROJECT_NAME}_COPYRIGHT
      "2024, ${DEV_CURRENT_YEAR}, ${${PROJECT_NAME}_ORGANISATION_NAME}")
 
 find_package(Python 3.8
-  REQUIRED COMPONENTS Interpreter
+  REQUIRED COMPONENTS Interpreter Development.Module
 )
-
-include(FetchContent)
 
 set(CMAKE_MODULE_PATH
   $ENV{CMAKE_MODULE_PATH}
-  ${CMAKE_CURRENT_SOURCE_DIR}/environment/cmake
+  ${CMAKE_SOURCE_DIR}/environment/cmake
 )
 
 include(CPM)

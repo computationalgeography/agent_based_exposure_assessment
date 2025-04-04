@@ -10,7 +10,7 @@ NB_MODULE(routing, m) {
   nb::class_<Routing>(m, "routing")
     .def(nb::init<const std::string &, const std::string&, const std::string&, const std::string&>())
     .def("distance", &Routing::distance)
-    .def("route", &Routing::route)
+    .def("route", &Routing::route);
 
   nb::enum_<Routing::Mode>(m, "Mode")
     .value("Car", Routing::Mode::car)

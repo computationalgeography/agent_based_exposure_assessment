@@ -23,7 +23,8 @@ jobs:
 
             - name: Configure system
               run: |
-                  sudo apt install ninja-build cmake liblua5.4-dev libboost-all-dev libtbb-dev nanobind-dev libbz2-dev \
+                  sudo apt install ninja-build cmake \
+                  liblua5.4-dev libboost-all-dev libtbb-dev nanobind-dev libbz2-dev \
                   python3-sphinx python3-pandas
 
 
@@ -32,6 +33,9 @@ jobs:
               run: |
                   mkdir ${{ env.build-directory }}
                   cmake \
+                    -G "Ninja" \
+                    -D CMAKE_C_COMPILER=clang-18 \
+                    -D CMAKE_CXX_COMPILER=clang++-18 \
                     -S ${{ env.source-directory }} \
                     -B ${{ env.build-directory }}
 

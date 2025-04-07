@@ -23,7 +23,9 @@ jobs:
 
             - name: Configure system
               run: |
-                  sudo apt install ninja-build cmake python3-sphinx
+                  sudo apt install ninja-build cmake liblua5.4-dev libboost-all-dev libtbb-dev nanobind-dev libbz2-dev \
+                  python3-sphinx python3-pandas
+
 
             - name: Configure project
               shell: bash -l {0}

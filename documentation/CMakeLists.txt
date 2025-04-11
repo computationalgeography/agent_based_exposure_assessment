@@ -4,6 +4,8 @@ configure_file(conf.py.in
 
 set(SOURCES
   index.rst
+  concepts.md
+  reference.rst
 )
 
 add_custom_target(init_doc_sources ALL
@@ -18,7 +20,7 @@ add_custom_command(
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   COMMAND ${CMAKE_COMMAND} -E copy_directory _static ${CMAKE_CURRENT_BINARY_DIR}/_static
   COMMAND ${CMAKE_COMMAND} -E copy_directory _templates ${CMAKE_CURRENT_BINARY_DIR}/_templates
-  COMMAND ${CMAKE_COMMAND} -E copy index.rst ${CMAKE_CURRENT_BINARY_DIR}
+  COMMAND ${CMAKE_COMMAND} -E copy ${SOURCES} ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 add_custom_target(documentation

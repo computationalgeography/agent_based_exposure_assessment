@@ -39,3 +39,17 @@ add_custom_command(
   COMMENT "Copying Python sources schedules..."
   COMMAND ${CMAKE_COMMAND} -E copy_directory schedules ${CMAKE_CURRENT_BINARY_DIR}/schedules
 )
+
+install(
+  FILES
+    ${SOURCES}
+  DESTINATION
+    ${ABEM_INSTALL_DIR}/
+)
+
+install(
+  FILES
+    ${ACTIVITY_SOURCES}
+  DESTINATION
+    ${ABEM_INSTALL_DIR}/schedules
+)

@@ -67,3 +67,8 @@ target_include_directories(routing
     ${CMAKE_BINARY_DIR}/_deps/osrm-backend-src/include/
     ${CMAKE_BINARY_DIR}/_deps/osrm-backend-src/third_party/flatbuffers/include/
 )
+
+install(
+  TARGETS routing
+  DESTINATION ${ABEM_INSTALL_DIR}/
+)

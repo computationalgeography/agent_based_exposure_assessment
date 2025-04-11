@@ -23,11 +23,21 @@ set(CMAKE_MODULE_PATH
 
 include(CPM)
 
-CPMAddPackage(
-  GITHUB_REPOSITORY Project-OSRM/osrm-backend
-  GIT_TAG 646384a9480323344bc5984f236879d2db3da87e
-  OPTIONS "BUILD_SHARED_LIBS ON" "CMAKE_BUILD_TYPE Release"
-)
+
+if(NOT EXISTS "${CMAKE_CURRENT_BINARY_DIR}/_deps/osrm-backend-build/Makefile")
+  CPMAddPackage(
+    GITHUB_REPOSITORY Project-OSRM/osrm-backend
+    GIT_TAG 646384a9480323344bc5984f236879d2db3da87e
+    OPTIONS "BUILD_SHARED_LIBS ON" "CMAKE_BUILD_TYPE Release"
+  )
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_BINARY_DIR}/_deps/osrm-backend-build/cmake_install.cmake")
+  file(REMOVE ${CMAKE_CURRENT_BINARY_DIR}/_deps/osrm-backend-build/cmake_install.cmake)
+  file(TOUCH ${CMAKE_CURRENT_BINARY_DIR}/_deps/osrm-backend-build/cmake_install.cmake)
+endif()
+
+set(ABEM_INSTALL_DIR ${CMAKE_BINARY_DIR}/abem)
 
 enable_testing()
 
@@ -40,5 +50,6 @@ message(STATUS "  Version:                " ${${PROJECT_NAME}_VERSION})
 message(STATUS "  Build configuration:")
 message(STATUS "    Python interpreter:   " ${Python_EXECUTABLE})
 message(STATUS "    Python version:       " ${Python_VERSION_MAJOR}.${Python_VERSION_MINOR}.${Python_VERSION_PATCH})
-message(STATUS "    Site-packages:        " ${Python_SITELIB})
+# message(STATUS "    Site-packages:        " ${Python_SITELIB})
+message(STATUS "  Install:                " ${CMAKE_BINARY_DIR})
 message(STATUS "-------------------------------------------------")

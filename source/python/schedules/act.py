@@ -2,7 +2,7 @@ from .config import ActivityType, ActivityDescription, CommuteType, BufferCalcul
 
 
 class Activity(object):
-    def __init__(self):
+    def __init__(self) -> None:
 
         self._time_delta = None
         self._end_time = None
@@ -44,7 +44,7 @@ class Activity(object):
 
 
 class PointActivity(Activity):
-    def __init__(self, act_desc):
+    def __init__(self, act_desc: str) -> None:
         super().__init__()
         self._activity_type = ActivityType.point
         self._activity_description = act_desc
@@ -54,7 +54,7 @@ class PointActivity(Activity):
 
 
 class BufferActivity(Activity):
-    def __init__(self, act_desc):
+    def __init__(self, act_desc: str) -> None:
         super().__init__()
         self._activity_type = ActivityType.buffer
         self._activity_description = act_desc
@@ -66,7 +66,7 @@ class BufferActivity(Activity):
 
 
 class Point_Final(PointActivity):
-    def __init__(self, act_desc, xcoord, ycoord):
+    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float) -> None:
         super().__init__(act_desc)
 
         self.xcoord = xcoord
@@ -82,7 +82,7 @@ class Point_Final(PointActivity):
 
 
 class Point_Fixed(PointActivity):
-    def __init__(self, act_desc, xcoord, ycoord, delta):
+    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float, delta) -> None:
         super().__init__(act_desc)
 
         self.xcoord = xcoord
@@ -98,7 +98,7 @@ class Point_Fixed(PointActivity):
 
 
 class Buffer_Fixed(BufferActivity):
-    def __init__(self, act_desc, xcoord, ycoord, delta, buffersize, method=BufferCalculation.mean):
+    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float, delta, buffersize, method=BufferCalculation.mean) -> None:
         super().__init__(act_desc)
 
         self.xcoord = xcoord
@@ -116,7 +116,7 @@ class Buffer_Fixed(BufferActivity):
 
 
 class Buffer_Final(BufferActivity):
-    def __init__(self, act_desc, xcoord, ycoord, delta, buffersize, method=BufferCalculation.mean):
+    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float, delta, buffersize, method=BufferCalculation.mean) -> None:
         super().__init__(act_desc)
 
         self.xcoord = xcoord
@@ -134,7 +134,18 @@ class Buffer_Final(BufferActivity):
 
 
 class Commute(Activity):
-    def __init__(self, act_desc, home_x, home_y, work_x, work_y, travel_mode, duration):
+    def __init__(self, act_desc: str, home_x: int | float, home_y: int | float, work_x: int | float, work_y: int | float, travel_mode, duration: int) -> None:
+        """
+        The commute activity.
+
+        :param act_desc: activity description
+        :param home_x: x coordinate of start location
+        :param home_y: y coordinate of start location
+        :param work_x: x coordinate of destination location
+        :param work_y: y coordinate of destination location
+        :param travel_mode: travel mode
+        :param duration: duration in minutes
+        """
         super().__init__()
         self._activity_type = ActivityType.route
         self._activity_description = act_desc

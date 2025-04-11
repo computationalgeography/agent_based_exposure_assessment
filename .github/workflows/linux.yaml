@@ -70,7 +70,6 @@ jobs:
                 if-no-files-found: error
 
 
-
     # Deploy job
     deploy:
         # Add a dependency to the build job
@@ -92,4 +91,3 @@ jobs:
           - name: Deploy to GitHub Pages
             id: deployment
             uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
-

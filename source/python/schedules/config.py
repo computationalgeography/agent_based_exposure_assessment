@@ -9,7 +9,7 @@ class EnumBase(enum.Enum):
 
 
 class ActivityType(EnumBase):
-    """  """
+    """ Enumeration of supported activity types  """
     unknown = None
     point = 1
     buffer = 2
@@ -17,7 +17,7 @@ class ActivityType(EnumBase):
 
 
 class ActivityDescription(EnumBase):
-    """  """
+    """ Enumeration of supported activity descriptions """
     unknown = None
     home = 1
     work = 2
@@ -27,7 +27,7 @@ class ActivityDescription(EnumBase):
 
 
 class CommuteType(EnumBase):
-    """  """
+    """ Enumeration of supported commute modes """
     unknown = -1
     car = 0
     bike = 1
@@ -37,7 +37,7 @@ class CommuteType(EnumBase):
 
 
 class BufferCalculation(EnumBase):
-    """  """
+    """ Enumeration of supported aggregation in buffer areas """
     unknown = 0
     sum = 1
     mean = 2

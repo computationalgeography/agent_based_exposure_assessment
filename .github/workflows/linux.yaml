@@ -25,7 +25,8 @@ jobs:
               run: |
                   sudo apt install ninja-build cmake \
                   liblua5.4-dev libboost-all-dev libtbb-dev nanobind-dev libbz2-dev \
-                  python3-sphinx python3-pandas python3-sphinx-autodoc-typehints
+                  python3-sphinx python3-pandas python3-sphinx-autodoc-typehints \
+                  python3-myst-parser
 
 
             - name: Configure project

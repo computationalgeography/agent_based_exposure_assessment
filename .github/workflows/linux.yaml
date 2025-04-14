@@ -43,7 +43,7 @@ jobs:
             - name: Build project
               shell: bash -l {0}
               run: |
-                  cmake --build ${{ env.build-directory }} --target documentation
+                  cmake --build ${{ env.build-directory }} --target all
 
             - name: Test project
               shell: bash -l {0}

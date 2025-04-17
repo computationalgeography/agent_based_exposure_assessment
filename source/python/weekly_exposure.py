@@ -11,7 +11,7 @@ import pandas as pd
 
 
 class Weekly(object):
-    def __init__(self, directory, filename, realisations, combine, output_path):
+    def __init__(self, directory, filename, realisations, combine, output_path) -> None:
 
         self.directory = directory
         self.db_con = sqlite3.connect(":memory:")

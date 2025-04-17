@@ -3,7 +3,7 @@ import pathlib
 
 
 class Schedule(object):
-    def __init__(self, start_time, end_time, delta, agent_id):
+    def __init__(self, start_time, end_time, delta, agent_id) -> None:
         self.agenda_start_time = start_time
         self.agenda_end_time = end_time
         self.delta = delta

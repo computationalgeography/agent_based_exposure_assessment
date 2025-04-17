@@ -14,7 +14,7 @@ import config
 
 
 class Profile(object):
-    def __init__(self, rng, realisation, od_matrix=None):
+    def __init__(self, rng, realisation, od_matrix=None) -> None:
 
         self.name = None
         self.name_r = None

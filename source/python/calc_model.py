@@ -17,7 +17,7 @@ gdal.UseExceptions()
 
 
 class ExposureCalculator(object):
-    def __init__(self, filename, props, epsg, logger, routing_engine):
+    def __init__(self, filename, props, epsg, logger, routing_engine) -> None:
 
         self.logger = logger
         self.epsg = epsg

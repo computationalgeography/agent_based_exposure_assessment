@@ -6,7 +6,7 @@ import campo
 
 
 class EnvFactors(object):
-    def __init__(self, filename, phenomenon, property_set, prop, regular=True):
+    def __init__(self, filename, phenomenon, property_set, prop, regular=True) -> None:
         """ Initialise with LUE dataset """
         self.filename = filename
         self.phenomenon = phenomenon

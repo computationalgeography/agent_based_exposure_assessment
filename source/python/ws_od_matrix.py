@@ -3,7 +3,7 @@ from .ws_base import Work_location
 
 
 class ODMatrixSelect(Work_location):
-    def __init__(self, rng):
+    def __init__(self, rng) -> None:
         Work_location.__init__(self, rng)
 
         self._weights = {}

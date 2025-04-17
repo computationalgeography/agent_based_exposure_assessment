@@ -12,7 +12,7 @@ gdal.UseExceptions()
 
 
 class SpatialContext(object):
-    def __init__(self, routing_engine, geotransform, epsg):
+    def __init__(self, routing_engine, geotransform, epsg) -> None:
         self.round_digits = 4
         self.r = routing_engine
 

@@ -14,7 +14,7 @@ def progress(status, remaining, total):
 
 
 class Schedules(object):
-    def __init__(self, output_dir, t_start, t_end, t_delta, props):
+    def __init__(self, output_dir, t_start, t_end, t_delta, props) -> None:
         self.output_dir = output_dir
 
         self.all_schedules = []

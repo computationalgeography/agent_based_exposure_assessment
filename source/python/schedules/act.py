@@ -82,12 +82,12 @@ class Point_Final(PointActivity):
 
 
 class Point_Fixed(PointActivity):
-    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float, delta) -> None:
+    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float, duration: int) -> None:
         super().__init__(act_desc)
 
         self.xcoord = xcoord
         self.ycoord = ycoord
-        self._activity_delta = delta
+        self.duration = duration
 
     def activity(self, current_time):
         assert self._agenda_start
@@ -98,12 +98,12 @@ class Point_Fixed(PointActivity):
 
 
 class Buffer_Fixed(BufferActivity):
-    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float, delta, buffersize, method=BufferCalculation.mean) -> None:
+    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float, buffersize: int | float, duration: int, method=BufferCalculation.mean) -> None:
         super().__init__(act_desc)
 
         self.xcoord = xcoord
         self.ycoord = ycoord
-        self._activity_delta = delta
+        self.duration = duration
         self.buffersize = buffersize
         self.buffer_method = method
 
@@ -116,12 +116,11 @@ class Buffer_Fixed(BufferActivity):
 
 
 class Buffer_Final(BufferActivity):
-    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float, delta, buffersize, method=BufferCalculation.mean) -> None:
+    def __init__(self, act_desc: str, xcoord: int | float, ycoord: int | float, buffersize: int | float, method=BufferCalculation.mean) -> None:
         super().__init__(act_desc)
 
         self.xcoord = xcoord
         self.ycoord = ycoord
-        self._activity_delta = delta
         self.buffersize = buffersize
         self.buffer_method = method
 
@@ -134,15 +133,15 @@ class Buffer_Final(BufferActivity):
 
 
 class Commute(Activity):
-    def __init__(self, act_desc: str, home_x: int | float, home_y: int | float, work_x: int | float, work_y: int | float, travel_mode, duration: int) -> None:
+    def __init__(self, act_desc: str, x1: int | float, y1: int | float, x2: int | float, y2: int | float, travel_mode, duration: int) -> None:
         """
         The commute activity.
 
         :param act_desc: activity description
-        :param home_x: x coordinate of start location
-        :param home_y: y coordinate of start location
-        :param work_x: x coordinate of destination location
-        :param work_y: y coordinate of destination location
+        :param x1: x coordinate of start location
+        :param y1: y coordinate of start location
+        :param x2: x coordinate of destination location
+        :param y2: y coordinate of destination location
         :param travel_mode: travel mode
         :param duration: duration in minutes
         """
@@ -150,10 +149,10 @@ class Commute(Activity):
         self._activity_type = ActivityType.route
         self._activity_description = act_desc
 
-        self.start_x = home_x
-        self.start_y = home_y
-        self.dest_x = work_x
-        self.dest_y = work_y
+        self.start_x = x1
+        self.start_y = y1
+        self.dest_x = x2
+        self.dest_y = y2
 
         self.travel_mode = travel_mode
         self.duration = duration

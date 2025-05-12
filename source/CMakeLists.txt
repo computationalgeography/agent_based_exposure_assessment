@@ -9,14 +9,6 @@ set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS OFF)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-
-# include(FetchContent)
-
-
 find_package(nanobind CONFIG REQUIRED)
-
-# set(BOOST_COMPONENTS program_options) #date_time chrono filesystem iostreams program_options regex system thread unit_test_framework)
-
-# find_package(Boost REQUIRED COMPONENTS ${BOOST_COMPONENTS})
 
 add_subdirectory(cpp)

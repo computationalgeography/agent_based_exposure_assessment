@@ -29,7 +29,7 @@ add_custom_command(
   DEPENDS ${SOURCES}
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   COMMENT "Copying Python sources..."
-  COMMAND ${CMAKE_COMMAND} -E copy ${SOURCES} ${CMAKE_CURRENT_BINARY_DIR}
+  COMMAND ${CMAKE_COMMAND} -E copy ${SOURCES} ${CMAKE_BINARY_DIR}/bin/abem/ #${CMAKE_CURRENT_BINARY_DIR}
 )
 
 add_custom_command(
@@ -37,7 +37,7 @@ add_custom_command(
   DEPENDS ${FIELD_SOURCES}
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   COMMENT "Copying Python sources schedules..."
-  COMMAND ${CMAKE_COMMAND} -E copy_directory schedules ${CMAKE_CURRENT_BINARY_DIR}/schedules
+  COMMAND ${CMAKE_COMMAND} -E copy_directory schedules ${CMAKE_BINARY_DIR}/bin/abem/schedules #${CMAKE_CURRENT_BINARY_DIR}/schedules
 )
 
 install(

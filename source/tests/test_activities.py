@@ -1,6 +1,6 @@
 import unittest
 
-from python.schedules import act
+from abem.schedules import act
 
 
 class TestSchedules(unittest.TestCase):

@@ -38,6 +38,6 @@ if(WIN32)
 else()
   set(ENV_PATH $ENV{PYTHONPATH})
   set_tests_properties(unit_tests PROPERTIES
-    ENVIRONMENT "PYTHONPATH=${CMAKE_BINARY_DIR}/source:$ENV{PYTHONPATH}"
+    ENVIRONMENT "PYTHONPATH=${CMAKE_BINARY_DIR}/bin/:$ENV{PYTHONPATH}"
   )
 endif()

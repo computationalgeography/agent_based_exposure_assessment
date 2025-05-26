@@ -2,6 +2,7 @@ import unittest
 import sys
 
 import test_activities
+import test_spatial_context
 
 
 if __name__ == "__main__":

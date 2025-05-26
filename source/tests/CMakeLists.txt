@@ -1,6 +1,7 @@
 set(SOURCES
   unit_tests.py
   test_activities.py
+  test_spatial_context.py
 )
 
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/config.py "inmem_schedules = True")

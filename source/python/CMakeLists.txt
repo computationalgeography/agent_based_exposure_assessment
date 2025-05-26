@@ -29,7 +29,8 @@ add_custom_command(
   DEPENDS ${SOURCES}
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   COMMENT "Copying Python sources..."
-  COMMAND ${CMAKE_COMMAND} -E copy ${SOURCES} ${CMAKE_BINARY_DIR}/bin/abem/ #${CMAKE_CURRENT_BINARY_DIR}
+  COMMAND ${CMAKE_COMMAND} -E make_directory  ${CMAKE_BINARY_DIR}/bin/abem/
+  COMMAND ${CMAKE_COMMAND} -E copy ${SOURCES} ${CMAKE_BINARY_DIR}/bin/abem/
 )
 
 add_custom_command(
